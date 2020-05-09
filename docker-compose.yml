@@ -1,0 +1,19 @@
+version: "3"
+services:
+  react:
+    build: ./frontend/
+    ports:
+      - "3000:3000"
+    networks:
+      - host
+    tty: true
+  node:
+    build: ./backend/
+    ports:
+      - "3001:3001"
+    networks:
+      - host
+
+networks:
+  host:
+    driver: bridge

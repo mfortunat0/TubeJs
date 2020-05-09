@@ -1,0 +1,8 @@
+FROM ubuntu:latest
+WORKDIR /usr/app
+RUN apt update && apt install curl -y && curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get install -y nodejs && apt install ffmpeg -y
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3001
+CMD ["npm","start"]
